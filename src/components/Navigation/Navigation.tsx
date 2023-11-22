@@ -1,8 +1,7 @@
 "use client";
 
 /* This example requires Tailwind CSS v2.0+ */
-import { ComponentProps, Fragment, useRef } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition } from '@headlessui/react';
 import {
   AcademicCapIcon,
   Bars3Icon,
@@ -10,54 +9,55 @@ import {
   ChartBarIcon,
   LifebuoyIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
+} from '@heroicons/react/24/outline';
+import { Fragment, useRef } from 'react';
 
-import React from 'react'
-import logo from "@/images/logo.svg" // eslint-disable-line
-import DesktopLink from './Links/DesktopLink'
-import MobileLink from './Links/MobileLink'
-import { container_classes } from '../Utils/Container'
-import Link from 'next/link'
+import logo from "@/images/logo.svg"; // eslint-disable-line
 import Image from 'next/image';
+import React from 'react';
+import { container_classes } from '../Utils/Container';
+import DesktopLink from './Links/DesktopLink';
+import MobileLink from './Links/MobileLink';
+import Link from 'next/link';
 
 const menu: NavigationItemType[] = [
   {
-      name: 'O naší technologii',
-      description: 'Get all of your questions answered in our forums or contact support.',
-      href: '#contact',
-      icon: LifebuoyIcon,
-      children: [
-          {
-              name: 'Přínosy',
-              description: 'Spolehlivá technologie šetří náklady a řeší omezení existujících metod.',
-              href: '#advantages',
-              icon: ChartBarIcon,
-          },
-          {
-              name: 'How it works',
-              description: 'A unique patent about the new technology',
-              href: '#how',
-              icon: AcademicCapIcon,
-          },
-          {
-              name: 'Srovnání s konkurenčními metodami',
-              description: "LabIR SpotWELD je nový druh IR NDT",
-              href: '#comparaison',
-              icon: ChartBarIcon
-          },
-      ]
+    name: 'O naší technologii',
+    description: 'Get all of your questions answered in our forums or contact support.',
+    href: '#contact',
+    icon: LifebuoyIcon,
+    children: [
+      {
+        name: 'Jak to funguje',
+        description: 'unikátní technologie založená na laserovém ohřevu',
+        href: '#how',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'Přínosy',
+        description: 'Spolehlivá technologie šetří náklady a řeší omezení existujících metod.',
+        href: '#advantages',
+        icon: ChartBarIcon,
+      },
+      {
+        name: 'Srovnání s konkurenčními metodami',
+        description: "LabIR SpotWELD je nový druh IR NDT",
+        href: '#comparaison',
+        icon: ChartBarIcon
+      },
+    ]
   },
   {
-      name: 'Řešení pro automotive',
-      description: 'Get all of your questions answered in our forums or contact support.',
-      href: '#contact',
-      icon: LifebuoyIcon,
+    name: 'Nabídka',
+    description: 'Implementujte LabIR SpotWeld do Vašich procesů',
+    href: '#offer',
+    icon: BookmarkSquareIcon,
   },
   {
-      name: 'Nabídka pro ostatní sektory',
-      description: 'Learn how to maximize our platform to get the most out of it.',
-      href: '#contact',
-      icon: BookmarkSquareIcon,
+    name: 'O nás',
+    description: 'Get all of your questions answered in our forums or contact support.',
+    href: '#about',
+    icon: LifebuoyIcon,
   }
 ]
 
@@ -72,23 +72,23 @@ export type NavigationItemType = {
 /**
  * A complete site navigation solution
  */
-const Navigation: React.FC = () =>  {
+const Navigation: React.FC = () => {
 
   const mobileRef = useRef<any>();
 
   return (
-    <Popover className="relative bg-white">
-      <div className={container_classes.join( " " )}>
+    <Popover className="fixed z-50 w-full bg-white">
+      <div className={container_classes.join(" ")}>
         <div className="flex justify-between items-center py-6 lg:justify-start lg:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#contact">
+            <Link href="/" title="LabIR Spotweld">
               <span className="sr-only">LabIR Spot Weld</span>
               <Image
                 className="h-8 w-auto sm:h-10"
                 src={logo}
                 alt="LabIR Spot Weld"
               />
-            </a>
+            </Link>
           </div>
           <div className="-mr-2 -my-2 lg:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-primary-400 hover:text-primary-700 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-100">
@@ -99,7 +99,7 @@ const Navigation: React.FC = () =>  {
           <Popover.Group as="nav" className="hidden lg:flex justify-self-end space-x-8">
 
             {menu.map((item) => (
-                <DesktopLink {...item} key={item.name}/>
+              <DesktopLink {...item} key={item.name} />
             ))}
 
           </Popover.Group>
@@ -131,8 +131,8 @@ const Navigation: React.FC = () =>  {
                   {/*title*/}
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button 
-                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-primary-400 hover:text-primary-500 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" 
+                  <Popover.Button
+                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-primary-400 hover:text-primary-500 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
                     ref={mobileRef}
                   >
                     <span className="sr-only">Close menu</span>
@@ -141,12 +141,13 @@ const Navigation: React.FC = () =>  {
                 </div>
               </div>
 
-              {menu.map( item => <MobileLink {...item} buttonRef={mobileRef} key={item.name} /> )}
+              {menu.map(item => <MobileLink {...item} buttonRef={mobileRef} key={item.name} />)}
 
               <div className="py-6">
                 <a
                   href="#contact"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700"
+                  onClick={ () => mobileRef.current.click() }
                 >
                   Kontaktujte nás
                 </a>

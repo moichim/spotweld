@@ -8,7 +8,7 @@ type MobileLinkType = NavigationItemType & {
 const MobileLink: React.FC< MobileLinkType > = ( props ) => {
 
     const onClick = (event: React.SyntheticEvent, target: string) => {
-        event.preventDefault();
+        // event.preventDefault();
         props.buttonRef.current.click();
         // scrollTo( target );
     }
@@ -17,7 +17,7 @@ const MobileLink: React.FC< MobileLinkType > = ( props ) => {
         return <a
             className="inline-block w-full sm:w-1/2 py-3 text-base font-medium text-primary-100 hover:text-white"
             href={props.href}
-            // onClick={ event => onClick( event, props.href ) }
+            onClick={ event => onClick( event, props.href ) }
         >
             {props.name}
         </a>

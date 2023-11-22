@@ -33,7 +33,7 @@ export default function Home() {
 
         <Container>
 
-          <div className="pb-12 pt-24 text-center text-3xl md:text-5xl font-black">
+          <div className="pb-12 pt-40 text-center text-3xl md:text-5xl font-black">
             <h2>Jak to funguje</h2>
           </div>
 
@@ -48,7 +48,7 @@ export default function Home() {
 
       </div>
 
-      <div className="__clipper pt-24 pb-24 lg:pb-56 z-40 relative bg-gray-200" id="comparaison">
+      <div className="__clipper pt-40 pb-24 lg:pb-56 z-40 relative bg-gray-200" id="comparaison">
 
         <div className={container_classes.join(" ")}>
 
@@ -62,7 +62,7 @@ export default function Home() {
 
       </div>
 
-      <div className="py-10">
+      <div className="py-10 " id="offer">
 
         <div className={container_classes.join(" ")}>
 
@@ -170,7 +170,7 @@ export default function Home() {
 
         </div>
 
-        <div className={container_classes.join(" ")}>
+        <div className={container_classes.join(" ")} id="about">
 
           <div className="pt-12 pb-12 text-center text-3xl md:text-5xl font-black">
             <h2>Kdo jsme</h2>

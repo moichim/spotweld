@@ -8,7 +8,9 @@ import ntc from "@/images/ntc.svg";
 import chropyne from "@/images/chropynska.svg";
 
 export const Logos: React.FC = props => {
-    return <Container className="flex flex-wrap items-center" >
+    return <div className="flex flex-wrap items-center __cropper__right__only pt-20 pb-20 bg-gray-200" >
+
+      <Container>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 py-14">
       <CheckerItem
@@ -49,5 +51,7 @@ export const Logos: React.FC = props => {
 
     </div>
 
-  </Container>
+    </Container>
+
+  </div>
 }

@@ -60,8 +60,8 @@ const DesktopLink = ( props: NavigationItemType ) => {
                               href={item.href}
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                               onClick={ (event) => {
-                                event.preventDefault();
-                                ref?.current?.click();
+                                // event.preventDefault();
+                                // ref?.current?.click();
                                 // scrollTo( item.href );
                               } }
                             >
