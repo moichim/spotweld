@@ -25,3 +25,87 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+
+.__logoitem:hover div.border-gray-300 {
+  @apply bg-gray-100
+}
+
+.__logoitem:hover div.text-sm {
+  @apply text-gray-500
+}
+
+.__table-compares td,
+.__table-compares th {
+  @apply p-2 lg:p-4
+}
+
+.__table-compares th {
+  @apply w-40 align-bottom
+}
+
+.__table-compares td {
+  @apply align-top
+}
+
+.__table-compares svg {
+  @apply w-12 inline-block
+}
+
+.__table-compares svg.__compare-info {
+  @apply w-6
+}
+
+.__tooltip > div {
+  @apply w-80
+}
+
+.__table-compares tbody tr:hover .bg-white {
+  @apply bg-slate-50
+}
+
+.__table-compares tbody tr:hover .hover\:bg-error-200:hover {
+  @apply bg-error-200
+}
+
+.__table-compares tbody tr:hover .hover\:bg-success-200:hover {
+  @apply bg-success-200
+}
+
+.__clipper {
+  clip-path: polygon( 0% 0%, 100% 4rem, 100% calc( 100% - 4rem ), 0% 100% );
+}
+
+.__cropper__right {
+  clip-path: polygon( 0% 4rem, 100% 0%, 100% calc( 100% - 4rem ), 0% 100% );
+}
+
+.__cropper__left {
+  clip-path: polygon( 0% 0%, 100% 4rem, 100% 100%, 0% calc( 100% - 4rem ) );
+}
+
+.__cropper__top {
+  margin-top: -4rem;
+}
+
+.__cropper__bottom {
+  margin-bottom: -4rem;
+}
+
+.__cropper__top__only {
+  clip-path: polygon( 0% 0%, 100% 4rem, 100% 100%, 0% 100% );
+}
+
+.__cropper__bottom__only {
+  clip-path: polygon( 0% 0%, 100% 0%, 100% calc( 100% - 4rem ), 0% 100% );
+}
+
+.__gradient {
+background: rgb(48,6,55);
+background: linear-gradient(0deg, rgba(48,6,55,0.8687850140056023) 34%, rgba(93,12,81,0.3533788515406162) 100%);
+}
+
+.react-flow__attribution {
+display: none !important;
+}

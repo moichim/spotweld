@@ -1,113 +1,224 @@
-import Image from 'next/image'
+import Comparaison from '@/components/Comparaison/Comparaison';
+import { compares } from '@/components/Comparaison/data';
+import OfferItem from '@/components/GridItems/OfferItem';
+import PersonItem from '@/components/GridItems/PersonItem';
+import Navigation from '@/components/Navigation/Navigation';
+import { Container } from '@/components/UI/Container';
+import { container_classes } from '@/components/Utils/Container';
+import Diagram from '@/components/diagram/Diagram';
+import { Advantages } from '@/components/sections/Advantages';
+import { Intro } from '@/components/sections/Intro';
+import { Logos } from '@/components/sections/Logos';
+import Image from 'next/image';
+import { BsEnvelopeFill, BsTelephoneFill } from 'react-icons/bs';
 
 export default function Home() {
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+
+    <div className="font-arimo">
+
+      <Navigation />
+
+      <Intro />
+
+      <Logos />
+
+      <Advantages />
+
+      <div className="bg-diagram-900 text-white __cropper__top __cropper__bottom overflow-hidden" id="how" style={{
+        backgroundSize: "40px 40px",
+        backgroundImage: "linear-gradient(to right, #9d174d 1px, transparent 1px),linear-gradient(to bottom, #9d174d 1px, transparent 1px)"
+      }}>
+
+        <Container>
+
+          <div className="pb-12 pt-24 text-center text-3xl md:text-5xl font-black">
+            <h2>Jak to funguje</h2>
+          </div>
+
+          <div className="text-center mb-16">
+            Technika dokáže rozlišit OK a NOK svary na základě individuálních kritérií zákazníka. Princip spočívá v laserové excitaci okolí svaru a záznamu zahřívání a ochlazování materiálu infračervenou kamerou. Okolí svaru totiž není ovlivněno předchozím svařováním. V této oblasti lze proto očekávat i termooptické vlastnosti. Tím se zabrání nerovnoměrnému ohřevu, který může zakrýt malé rozdíly mezi tepelným chováním ok a nok svaru. Laserový ohřev lze individuálně přizpůsobit pro jednotlivé typy svarů (materiály, rozměry plechů atd.) a splnit tak požadavky na kontrolu z hlediska času a nákladů.
+          </div>
+
+        </Container>
+
+        <Diagram fullPage={false} url="/schema" />
+
+
+      </div>
+
+      <div className="__clipper pt-24 pb-24 lg:pb-56 z-40 relative bg-gray-200" id="comparaison">
+
+        <div className={container_classes.join(" ")}>
+
+          <div className="pb-14 text-center text-3xl md:text-5xl font-black">
+            <h2>Srovnání s konkurenčními metodami</h2>
+          </div>
+
+          <Comparaison {...compares} />
+
         </div>
+
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="py-10">
+
+        <div className={container_classes.join(" ")}>
+
+          <div className="pb-6 text-center text-3xl md:text-5xl font-black">
+            <h2>Naše nabídka</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8">
+            <OfferItem
+              title='Jsem výrobce'
+              subtitle="a chci začlenit SpotWeld testování do mé linky"
+              key="checker-1"
+              what="Přinášíme hotové řešení pro Vaši výrobní linku."
+            >
+              <p>Pojďme společně vypočítat přínosy pro Vaši firmu. Vyčíslíme všechny přínosy technologie bezkontaktního nedestruktivního testování pro Vaše kvalifikované rozhodnutí.</p>
+            </OfferItem>
+
+            <OfferItem
+              title='Dodávám svařovací systémy'
+              subtitle="a chci do svých produktů přidat automatizovanou kontrolu kvality"
+              key="checker-2"
+              what="Poskytujeme licenci na technologii SpotWeld a podporu při její implementaci do Vašich svařovacích systémů."
+            >
+              <p>Projděme technické detaily a zjitěme přidanou hodnotu pro uživatele Vašich produktů.</p>
+            </OfferItem>
+
+            <OfferItem
+              title='Jsem výzkumník'
+              subtitle="a chtěl bych spolupracovat na dalším rozvoji techniky nedestruktivního testování. "
+              key="checker-3"
+              what="Jsme otevřeni spolupráci."
+            >
+              <p>Zveme Vás k diskuzi nad technickými detaily automatické bezkontaktní kontroly. </p>
+            </OfferItem>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <div id="contact" className="pb-24 __cropper__top__only bg-black text-white">
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="py-24 __cropper__bottom__only bg-primary-800">
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+          <div className={container_classes.join(" ")}>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+            <div className="pb-6 text-center text-3xl md:text-5xl font-black">
+              <h2>Kontaktujte nás</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl lg:max-w-3xl mx-auto gap-8 pt-8 py-14">
+
+              <PersonItem
+                name="Prof. Ing. Milan Honner, PhD."
+                key="Prof. Ing. Milan Honner, PhD."
+                position="Head of development"
+                portrait={<Image
+                  src="/images/honner.jpg"
+                  fill
+                  className="h-40 lg:h-60 w-full"
+                  alt="Milan Honner"
+                />}
+                links={[
+                  {
+                    name: "Email",
+                    href: "mailto:honner@ntc.zcu.cz",
+                    icon: <BsEnvelopeFill />
+                  },
+                  {
+                    name: "Telefon",
+                    href: "tel:605520777",
+                    icon: <BsTelephoneFill />
+                  }
+                ]}
+              />
+
+              <PersonItem
+                name="Ing. Lukáš Muzika"
+                position="Specialista"
+                key="Muzika"
+                portrait={<Image
+                  src="/images/muzika.jpg"
+                  fill
+                  className="h-40 lg:h-60 w-full"
+                  alt="Lukáš Muzika"
+                />}
+                links={[
+                  {
+                    name: "Email",
+                    href: "mailto:muzika@ntc.zcu.cz",
+                    icon: <BsEnvelopeFill />
+                  },
+                  {
+                    name: "Telefon",
+                    href: "tel:605520777",
+                    icon: <BsTelephoneFill />
+                  }
+                ]}
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className={container_classes.join(" ")}>
+
+          <div className="pt-12 pb-12 text-center text-3xl md:text-5xl font-black">
+            <h2>Kdo jsme</h2>
+          </div>
+
+          <div className="text-white mx-auto px-4 pt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+
+            <div className="">
+
+              <div className="pb-8">
+                <h4 className="text-lg pb-6 font-bold">
+                  Výzkumný tým Infračervené technologie
+                  <br />
+                  <a className="text-primary-300 hover:text-primary-400" href="https://irt.zcu.cz" target="_blank">NTC ZČU v Plzni</a>
+                </h4>
+                <p className="text-gray-200">Jsme součástí vysokoškolského ústavu NTC na Západočeské univerzitě v Plzni. Naší odborností je využití infračerveného záření a tepelných procesů v technických i netechnických aplikacích. Naše laboratoře využíváme pro praktické ověření nových řešení i pro vývoj unikátních řešení pro naše partnery a zákazníky.</p>
+              </div>
+
+              <div className="pb-8">
+                <h4 className="text-lg pb-6 font-bold">
+                  LabIR
+                </h4>
+                <p className="text-gray-200">Jsme specialisté na termovizní měření teplot. Větší počet používaných termokamer různých druhů i výrobců s nekompatibilním softwarem omezených funkcí nás přivedl k vývoji vlastního <a href="https://software.labir.cz/" target="_blank" className="text-primary-300 hover:text-primary-400">softwaru LabIR®</a> pro termovize. Plynule jsme navázali vývojem <a href="https://paints.labir.cz/" target="_blank" className="text-primary-300 hover:text-primary-400">speciálních barev LabIR® Paints</a> pro termovize a pro zpřesnění výsledků měření termokamerami. Díky špičkovému technickému vybavení, vlastnímu vývoji produktů a týmu specialistů v oblasti infračerveného záření, tak můžeme nabídnout i <a href="https://irt.zcu.cz/cs/vyzkum/" target="_blank" className="text-primary-300 hover:text-primary-400">služby pokročilých termografických měřicích metod</a>.</p>
+              </div>
+
+            </div>
+
+            <div>
+              <Image
+                src="/images/building.jpg"
+                alt="Budova"
+                width={1200}
+                height={1000}
+                className="rounded-lg"
+              />
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
-    </main>
+
+    </div>
+
+
+
+
   )
 }
