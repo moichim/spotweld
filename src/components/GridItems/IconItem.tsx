@@ -4,7 +4,7 @@ type IconItemProps = {
     label: string,
     icon: React.ReactNode,
     description: string,
-    link: {
+    link?: {
         href: string,
         target?: string,
         label?: string
