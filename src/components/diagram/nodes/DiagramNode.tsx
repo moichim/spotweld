@@ -53,7 +53,7 @@ const DiagramNode: React.FC<DiagramNodeProps> = (props) => {
             {props.data.section}
         </div>}
 
-        <div className={`rounded-lg overflow-hidden`}>
+        <div className={`rounded-lg overflow-hidden text-black`}>
 
             {props.data.title && <div className="p-3">{props.data.title}</div>}
 
